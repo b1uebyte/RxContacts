@@ -193,6 +193,7 @@ public class ContactsHelper {
                 CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE,
                 CommonDataKinds.Email.CONTENT_ITEM_TYPE,
                 CommonDataKinds.Phone.CONTENT_ITEM_TYPE,
+                CommonDataKinds.Phone.NORMALIZED_NUMBER,
         };
         String selection = TextUtils.join(" OR ", wheres);
         Cursor data = resolver.query(
@@ -217,6 +218,7 @@ public class ContactsHelper {
         contact.lastTimeContacted = lastTimeContacted;
 
         List<String> phones = new ArrayList<>();
+        List<String> normalizedPhones = new ArrayList<>();
         List<String> emails = new ArrayList<>();
 
         String nextId = id;
@@ -233,6 +235,9 @@ public class ContactsHelper {
                 case CommonDataKinds.Phone.CONTENT_ITEM_TYPE:
                     phones.add(value);
                     break;
+                case CommonDataKinds.Phone.NORMALIZED_NUMBER:
+                    normalizedPhones.add(value);
+                    break;
 
             }
 
@@ -244,6 +249,7 @@ public class ContactsHelper {
 
         contact.phones = phones;
         contact.emails = emails;
+        contact.normalizedPhones = normalizedPhones;
 
         return contact;
     }

@@ -10,9 +10,9 @@ public class Contact implements Comparable<Contact> {
     public String photoUri;
     public List<String> emails;
     public List<String> phones;
+    public List<String> normalizedPhones;
     public long lastTimeContacted;
     public boolean isStarred;
-
 
     public Contact(String contactId) {
         this.contactId = contactId;
