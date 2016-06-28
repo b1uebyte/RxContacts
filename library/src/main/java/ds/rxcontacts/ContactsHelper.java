@@ -188,7 +188,7 @@ public class ContactsHelper {
 
     Cursor getFastContactsCursor() {
         String where = ContactsContract.Data.MIMETYPE + "=?";
-        String[] wheres = {where, where, where};
+        String[] wheres = {where, where, where, where};
         String[] selectionArgs = {
                 CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE,
                 CommonDataKinds.Email.CONTENT_ITEM_TYPE,
